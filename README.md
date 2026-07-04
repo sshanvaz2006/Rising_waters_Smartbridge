@@ -147,11 +147,23 @@ http://127.0.0.1:5000
 
 ### Home Page
 
-![Home Page](assets/screenshots/home_page.png)
+<img src="assets/screenshots/home_page.png" width="800">
 
 ### Prediction Result
 
-![Prediction Result](assets/screenshots/prediction_result.png)
+<img src="assets/screenshots/prediction_result.png" width="800">
+
+### Flood Distribution
+
+<img src="assets/screenshots/flood_distribution.png" width="800">
+
+### Correlation Heatmap
+
+<img src="assets/screenshots/correlation_heatmap.png" width="800">
+
+### Histograms
+
+<img src="assets/screenshots/histograms.png" width="800">
 
 ### Flood Distribution
 
