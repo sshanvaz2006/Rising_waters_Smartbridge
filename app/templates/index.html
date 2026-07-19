@@ -1,60 +1,693 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Flood Prediction System</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rising Waters | AI Flood Prediction System</title>
 
     <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+        href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
+<div class="background"></div>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+
+        🌊 Rising Waters
+
+    </div>
+
+    <ul>
+
+        <li><a href="#">Home</a></li>
+
+        <li><a href="#prediction">Prediction</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#developer">Developer</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+
+            AI-Based Flood Prediction
+            & Early Warning System
+
+        </h1>
+
+        <p>
+
+            Predict flood risks using Artificial Intelligence and
+            Machine Learning by analysing rainfall, humidity,
+            cloud cover, and meteorological parameters.
+
+        </p>
+
+        <a href="#prediction">
+
+            <button>
+
+                Predict Flood Risk
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="hero-card">
+
+            <h2>
+
+                Live AI Model
+
+            </h2>
+
+            <p>
+
+                ✔ Random Forest Model
+
+            </p>
+
+            <p>
+
+                ✔ Accuracy : 96.8%
+
+            </p>
+
+            <p>
+
+                ✔ Real-Time Prediction
+
+            </p>
+
+            <p>
+
+                ✔ Disaster Preparedness
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+    <div class="card">
+
+        <i class="fa-solid fa-brain"></i>
+
+        <h2>96.8%</h2>
+
+        <p>Prediction Accuracy</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-database"></i>
+
+        <h2>25K+</h2>
+
+        <p>Training Records</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-cloud-rain"></i>
+
+        <h2>10</h2>
+
+        <p>Weather Features</p>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-microchip"></i>
+
+        <h2>Random Forest</h2>
+
+        <p>ML Algorithm</p>
+
+    </div>
+
+</section>
+
+<!-- ================= FORM ================= -->
+
+<section id="prediction">
+
 <div class="container">
 
-    <h1>🌊 Flood Prediction System</h1>
+<h2>
 
-    <p>AI-Powered Flood Risk Prediction using Machine Learning</p>
+Flood Risk Prediction
 
-    <hr><br>
+</h2>
 
-    <form action="/predict" method="POST">
+<p>
 
-        <input type="number" step="any" name="Temp" placeholder="Temperature (°C)" required>
+Enter the environmental and rainfall parameters below to
+predict the possibility of flooding.
 
-        <input type="number" step="any" name="Humidity" placeholder="Humidity (%)" required>
+</p>
 
-        <input type="number" step="any" name="Cloud Cover" placeholder="Cloud Cover (%)" required>
+<form action="/predict" method="POST">
 
-        <input type="number" step="any" name="ANNUAL" placeholder="Annual Rainfall (mm)" required>
+<div class="grid">
 
-        <input type="number" step="any" name="Jan-Feb" placeholder="Jan-Feb Rainfall (mm)" required>
+<div class="input-box">
 
-        <input type="number" step="any" name="Mar-May" placeholder="Mar-May Rainfall (mm)" required>
+<label>
 
-        <input type="number" step="any" name="Jun-Sep" placeholder="Jun-Sep Rainfall (mm)" required>
+🌡 Temperature (°C)
 
-        <input type="number" step="any" name="Oct-Dec" placeholder="Oct-Dec Rainfall (mm)" required>
+</label>
 
-        <input type="number" step="any" name="avgjune" placeholder="Average June Rainfall (mm)" required>
-
-        <input type="number" step="any" name="sub" placeholder="Subdivision Rainfall (mm)" required>
-
-        <input type="submit" value="🔍 Predict Flood Risk">
-
-    </form>
-
-    {% if prediction %}
-    <div class="result">
-        {{ prediction }}
-    </div>
-    {% endif %}
-
-    <div class="footer">
-        <p>Developed for SmartBridge AI/ML Project | Flood Prediction System</p>
-    </div>
+<input type="number" step="any" name="Temp"
+placeholder="Example : 29.5"
+required>
 
 </div>
+
+<div class="input-box">
+
+<label>
+
+💧 Humidity (%)
+
+</label>
+
+<input type="number" step="any" name="Humidity"
+placeholder="Example : 82"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+☁ Cloud Cover (%)
+
+</label>
+
+<input type="number" step="any" name="Cloud Cover"
+placeholder="Example : 75"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+🌧 Annual Rainfall (mm)
+
+</label>
+
+<input type="number" step="any" name="ANNUAL"
+placeholder="Example : 1450"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Jan-Feb Rainfall
+
+</label>
+
+<input type="number" step="any" name="Jan-Feb"
+placeholder="Rainfall"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Mar-May Rainfall
+
+</label>
+
+<input type="number" step="any" name="Mar-May"
+placeholder="Rainfall"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Jun-Sep Rainfall
+
+</label>
+
+<input type="number" step="any" name="Jun-Sep"
+placeholder="Rainfall"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Oct-Dec Rainfall
+
+</label>
+
+<input type="number" step="any" name="Oct-Dec"
+placeholder="Rainfall"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Average June Rainfall
+
+</label>
+
+<input type="number" step="any"
+name="avgjune"
+placeholder="Rainfall"
+required>
+
+</div>
+
+<div class="input-box">
+
+<label>
+
+Subdivision Rainfall
+
+</label>
+
+<input type="number"
+step="any"
+name="sub"
+placeholder="Rainfall"
+required>
+
+</div>
+
+</div>
+
+<button class="predict-btn">
+
+<i class="fa-solid fa-magnifying-glass-chart"></i>
+
+Predict Flood Risk
+
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result-card">
+
+<h2>
+
+Prediction Result
+
+</h2>
+
+<div class="prediction">
+
+{{ prediction }}
+
+</div>
+
+<div class="tips">
+
+<h3>
+
+Safety Recommendations
+
+</h3>
+
+<ul>
+
+<li>Stay updated with weather alerts.</li>
+
+<li>Avoid travelling to flood-prone regions.</li>
+
+<li>Prepare emergency supplies.</li>
+
+<li>Follow local disaster management instructions.</li>
+
+<li>Keep important documents safe.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</section>
+<!-- ================= ABOUT PROJECT ================= -->
+
+<section id="about" class="about-section">
+
+    <div class="section-title">
+        <h2>🌊 About Rising Waters</h2>
+        <p>AI-Based Flood Prediction & Early Warning System</p>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-card">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <h3>Project Overview</h3>
+
+            <p>
+                Rising Waters is an Artificial Intelligence-powered flood
+                prediction system that estimates flood risk using weather
+                conditions, rainfall patterns, cloud cover, humidity,
+                and regional rainfall statistics.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <h3>Objective</h3>
+
+            <p>
+                The objective of this project is to provide an early
+                warning system that helps government agencies,
+                disaster management teams, and local communities
+                prepare before flood events occur.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <h3>Machine Learning</h3>
+
+            <p>
+                The prediction model has been trained using historical
+                rainfall and environmental datasets. It analyzes multiple
+                meteorological features to estimate flood risk with high
+                prediction accuracy.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <div class="section-title">
+
+        <h2>✨ Key Features</h2>
+
+        <p>Why Rising Waters?</p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-box">
+            <i class="fa-solid fa-cloud-rain"></i>
+            <h3>Rainfall Analysis</h3>
+            <p>Analyzes seasonal and annual rainfall patterns.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa-solid fa-temperature-half"></i>
+            <h3>Weather Parameters</h3>
+            <p>Uses temperature, humidity, and cloud cover.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa-solid fa-brain"></i>
+            <h3>AI Prediction</h3>
+            <p>Machine Learning predicts flood probability.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h3>Early Warning</h3>
+            <p>Supports timely disaster preparedness.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= MODEL ================= -->
+
+<section class="model-section">
+
+    <div class="section-title">
+
+        <h2>🤖 AI Model Details</h2>
+
+    </div>
+
+    <div class="model-grid">
+
+        <div class="model-card">
+
+            <h3>Algorithm</h3>
+
+            <p>Random Forest Classifier</p>
+
+        </div>
+
+        <div class="model-card">
+
+            <h3>Dataset</h3>
+
+            <p>Historical Rainfall & Weather Dataset</p>
+
+        </div>
+
+        <div class="model-card">
+
+            <h3>Input Features</h3>
+
+            <p>10 Environmental Parameters</p>
+
+        </div>
+
+        <div class="model-card">
+
+            <h3>Prediction Accuracy</h3>
+
+            <p>96.8%</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+
+<section class="technology">
+
+    <div class="section-title">
+
+        <h2>🛠 Technology Stack</h2>
+
+    </div>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">
+
+            <i class="fa-brands fa-python"></i>
+
+            <h3>Python</h3>
+
+        </div>
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-code"></i>
+
+            <h3>Flask</h3>
+
+        </div>
+
+        <div class="tech-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>Machine Learning</h3>
+
+        </div>
+
+        <div class="tech-card">
+
+            <i class="fa-brands fa-html5"></i>
+
+            <h3>HTML5</h3>
+
+        </div>
+
+        <div class="tech-card">
+
+            <i class="fa-brands fa-css3-alt"></i>
+
+            <h3>CSS3</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DEVELOPER ================= -->
+
+<section id="developer" class="developer">
+
+    <div class="section-title">
+
+        <h2>👨‍💻 Developer</h2>
+
+    </div>
+
+    <div class="developer-card">
+
+        <h2>Shaik Shanvaz</h2>
+
+        <h4>Computer Science & Engineering</h4>
+
+        <p>
+
+            Gates Institute of Technology, Gooty
+
+        </p>
+
+        <p>
+
+            Academic Year: 2023 – 2027
+
+        </p>
+
+        <p>
+
+            SmartBridge AI & ML Internship Project
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+
+            🌊 Rising Waters
+
+        </h2>
+
+        <p>
+
+            AI-Based Flood Prediction & Early Warning System
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            Developed by <strong>Shaik Shanvaz</strong>
+
+        </p>
+
+        <p>
+
+            Gates Institute of Technology, Gooty
+
+        </p>
+
+        <p>
+
+            SmartBridge AI / ML Internship 2026
+
+        </p>
+
+        <br>
+
+        <p>
+
+            © 2026 Rising Waters. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
 
 </body>
 
